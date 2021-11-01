@@ -1,0 +1,18 @@
+This is a python crawler based on good implementation and syncronizing between HTTP Post requesets, and diving in the graphql database using publicly available API key.
+
+## The script working in details ##
+
+1# needed libraries for the script : 
+
+requests library ==> For making the POST request.
+pandas library ===> For making the structured excel site.
+json library ===> For handling the hierarchical GraphQL database.
+datetime library ====> For Exporting Dated Excel Sheets.
+
+2# What the script will do :
+
+It will crawl all the tokens and data from opensea statically without needing to access each page by accessing the main database directly.
+
+
+
+### Check the output example ###
