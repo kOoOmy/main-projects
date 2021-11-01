@@ -1,4 +1,4 @@
 ###
 #
-# This branch is intended for the WebApplication Projects
+# This Directory is intended for the WebApplication Projects.
 #
