@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<?php
+require "myphp.php" ;
+	
+?>
+
+
+<html>
+<head>
+ <title>Mina Cryptographics</title>
+
+</head>
+<style>
+
+</style>
+<body>
+
+<h1 style="text-align: center;">Cryptography Helper</h1>
+<pre id="base64Encoder" >
+<h1 > Base64 Encoder </h1>
+<form method="post">
+<input type="text" name="base64e" size="60" value="<?= $oldbase64e ?>" />
+<input type="submit" value="base64 Enocode !! "/>
+<input type="text" name="base64d" size="60" value="<?= $oldbase64d ?>" />
+<input type="submit" value="base64 Deocode !! "/>
+</form>
+"Your Encoded Base64 is : " <?= $base64e ?> 
+"Your Decoded Base64 is : " <?= $base64d ?> 
+</pre>
+
+<pre id="urlEncoder" >
+<h1 > URL Encoder </h1>
+<form method="post">
+<input type="text" name="urle" size="60" value="<?= $oldurle ?>" />
+<input type="submit" value="URL Enocode !! "/>
+<input type="text" name="urld" size="60" value="<?= $urld ?>" />
+<input type="submit" value="URL Deocode !! "/>
+</form>
+"Your Encoded URL is : " <?= $urle ?> 
+"Your Decoded URL is : " <?php echo wordwrap($urld,90,"\n",true) ?> 
+</pre>
+
+<h1> Hashing : </h1>
+
+<pre>
+
+<form method="post">
+<?php
+
+$hashes = array_slice(hash_algos(),0,38) ;
+#print_r($hashes);
+#print($hashes[0]);
+
+for ($i=0;$i<38;$i++){
+
+ echo "\n <input type='radio' name='hashtype' value='$hashes[$i]'> <b> $hashes[$i] </b> </br> \n";
+}
+
+$hashtype = isset($_POST['hashtype']) ? $_POST['hashtype'] : "";
+?>
+<input type="text" name="hashstring" size="60" value="<?= $oldhash ?>" />
+<input type="submit" value="Hash  !! "/>
+</form>
+
+"Your Hash is : " <?= $hashed ?> 
+
+</pre>
+
+<pre>
+<h2> Random Passowrd : </h2>
+<form method="post">
+    Length of passowrd :
+<input type="text" name="length" size="60" value="" />
+    Number of Capitals :
+<input type="text" name="capital" size="60" value="" />
+    How Many numbers :
+<input type="text" name="number" size="60" value="" />
+    Number of Symbols - Max number is 14 :
+<input type="text" name="symbols" size="60" value=" " />
+
+<input type="submit" value="Make Password !! !! "/>
+</form>
+</pre>
+
+<p> Your Password is : 
+    <?php 
+    if ( isset($_POST['length']) && isset($_POST['capital']) && isset($_POST['number']) && isset($_POST['symbols']) ) {
+    print (generatePassword( (int) $_POST['length'], (int)$_POST['capital'], (int)$_POST['number'], (int) $_POST['symbols'] ));
+} ?>
+     </p>
+</body>
+</html>
